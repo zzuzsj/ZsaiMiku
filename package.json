@@ -1,20 +1,44 @@
 {
   "dependencies": {
+    "autoprefixer": "^9.2.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "banner-plugin": "^1.0.10",
+    "css-loader": "^1.0.0",
+    "hot-module-replacement": "^3.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "less-loader": "^4.1.0",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.21.0",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9"
   },
-  "name": "mikuproj",
+  "name": "zsaimiku",
   "version": "1.0.0",
-  "main": "index.js",
-  "devDependencies": {},
+  "description": "",
+  "main": "build.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "packdev": "node build dev",
     "packprod": "node build prod",
-    "build": "webpack"
+    "build": "webpack",
+    "server": "webpack-dev-server --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzuzsj/ZsaiMiku.git"
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "bugs": {
+    "url": "https://github.com/zzuzsj/ZsaiMiku/issues"
+  },
+  "homepage": "https://github.com/zzuzsj/ZsaiMiku#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "less": "^3.8.1",
+    "pretty-error": "^2.1.1"
+  }
 }
