@@ -14,8 +14,17 @@
   right: 0;
   z-index: 1;
 }
-.boxContainer .box {
+.boxContainer .box_v {
+  width: 25%;
+  height: 12.5%;
+  float: left;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+}
+.boxContainer .box_h {
   width: 12.5%;
   height: 25%;
   float: left;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
 }

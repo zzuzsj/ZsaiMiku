@@ -30,9 +30,6 @@ class MikuCont {
       this.ctx.clearRect(0,0,this.w,this.h);
       that.shapeArray.forEach(cv=>{
           cv.shapeUpdate();
-          // if(!cv.switchEnd){
-          //   that.ctx.drawImage(cv.canvas,0,0,that.w,that.h);
-          // }
       });
     }
   }

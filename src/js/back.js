@@ -1,6 +1,6 @@
 import Util from './util'
 class MikuBack {
-  constructor (w, h, c = '#000000') {
+  constructor (w, h, c = '#cfea99') {
     this.w = w
     this.h = h
     this.c = c

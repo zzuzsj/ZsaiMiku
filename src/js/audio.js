@@ -15,7 +15,7 @@ class MikuAudio {
             this.audioCtx = new (window.AudioContext || window.webkitAudioContext);
         }catch(e){
             this.fail = true;
-            alert('Web audio is not supported in this browser');
+            // alert('Web audio is not supported in this browser');
         }
     }
     createAudioDes(){

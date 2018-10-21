@@ -27,20 +27,20 @@ renderCtx();
 
 setInterval(() => {
     back.addSwitch(60);
-}, 2000);
+}, 3000);
+
 setInterval(() => {
     backas[bindex].audio.play();
-    // bindex = Math.floor(Math.random()*backas.length);
     bindex++;
     if (bindex >= backas.length) bindex = 0;
 }, 200);
 
-board.addEventListener('click', () => {
-    cont.addShape('type_4');
-})
+let spaceEnd = true;
+
 let lastIndex = 0;
 let mouseDown = false;
 container.addEventListener('mousedown', e => {
+    fadeOut(e.target);    
     let sindex = e.target.getAttribute('data-show');
     if (sindex === lastIndex) return;
     showas[sindex].audio.play();
@@ -52,14 +52,47 @@ container.addEventListener('mousedown', e => {
 })
 container.addEventListener('mousemove', e => {
     if (!mouseDown) return;
+    fadeOut(e.target);    
+    if(!spaceEnd) return;
+    let sindex = e.target.getAttribute('data-show');
+    if (sindex === lastIndex) return;
+    showas[sindex].audio.play();
+    lastIndex = sindex;
+    let stype = sindex * 1 % 8 + 1;
+    cont.addShape(`type_${stype}`);
+    spaceEnd = false;
+    runSpaceTimer();
+})
+container.addEventListener('mouseup', e => {
+    lastIndex = 0;
+    mouseDown = false;
+})
+
+container.addEventListener('touchstart', e => {
+    fadeOut(e.target);    
     let sindex = e.target.getAttribute('data-show');
     if (sindex === lastIndex) return;
     showas[sindex].audio.play();
     lastIndex = sindex;
     let stype = sindex * 1 % 4 + 1;
     cont.addShape(`type_${stype}`);
+    lastIndex = sindex;
+    mouseDown = true;
 })
-container.addEventListener('mouseup', e => {
+container.addEventListener('touchmove', e => {
+    if (!mouseDown) return;
+    fadeOut(e.target);    
+    if(!spaceEnd) return;
+    let sindex = e.target.getAttribute('data-show');
+    if (sindex === lastIndex) return;
+    showas[sindex].audio.play();
+    lastIndex = sindex;
+    let stype = sindex * 1 % 8 + 1;
+    cont.addShape(`type_${stype}`);
+    spaceEnd = false;
+    runSpaceTimer();
+})
+container.addEventListener('touchend', e => {
     lastIndex = 0;
     mouseDown = false;
 })
@@ -88,7 +121,7 @@ function addBox() {
     let count = 32;
     for (let i = 0; i < count; i++) {
         let div = document.createElement('div');
-        div.className = "box";
+        div.className = bw>bh?'box_h':'box_v';
         div.setAttribute('data-show', i);
         container.appendChild(div);
     }
@@ -116,4 +149,29 @@ function addShowAudio() {
         arr.push(obj);
     }
     return arr;
+}
+
+function runSpaceTimer(){
+    if(spaceEnd) return;
+    let timer = setTimeout(()=>{
+        spaceEnd = true;
+    },200)
+}
+
+function fadeOut(target){
+    if(target.timer) clearInterval(target.timer);
+    target.style.opacity = 1;
+    let tt = 30;
+    let ct = 0;
+    target.timer = setInterval(()=>{
+        ct++;
+        let opa = ((tt-ct)/tt).toFixed(2);
+        target.style.opacity = opa;
+        if(ct>=30){
+            ct = 0;
+            clearInterval(target.timer);
+            target.style.opacity = 0;
+            target.timer = null;
+        }
+    },30)
 }

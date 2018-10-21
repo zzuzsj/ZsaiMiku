@@ -17,6 +17,7 @@ class Util {
     w,h}
   }
   static getRandomCount (start, end) {
+    if(end<=start) return start;
     return Math.round(start + Math.random() * (end - start))
   }
   static getRandomValue (arr, count, se) {
@@ -49,7 +50,7 @@ class Util {
     return arr
   }
   static getRandomColor () {
-    var colorValue = '4,5,6,7,8,9,A,B,C,D,E,F';
+    var colorValue = '7,8,9,A,B,C,D,E,F';
     var colorArray = colorValue.split(',')
     var color = '#'; 
     for (var i = 0;i < 6;i++) {
