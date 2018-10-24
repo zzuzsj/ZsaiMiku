@@ -67,7 +67,6 @@ class MikuEle {
         this.acount--
         this.tidx++
         if (this.tidx >= this.trails.length) {
-          console.log('end')
           this.tidx = 0
           this.isEnd = true
         } else {
@@ -84,7 +83,6 @@ class MikuEle {
       }
       this.tidx++
       if (this.tidx >= this.trails.length) {
-        console.log('end')
         this.tidx = 0
         this.isEnd = true
       } else {
@@ -104,7 +102,7 @@ class MikuRect extends MikuEle {
     this.count = options.count
   }
   renderTrail () {
-    if(this.isdelay) return;
+    // if(this.isdelay) return;
     this.ctx.save()
     if (!this.acount) this.ctx.translate(this.ctrail.x, this.ctrail.y)
     if (this.ctrail.s != 1) this.ctx.scale(this.ctrail.s, this.ctrail.s)

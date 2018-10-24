@@ -50,7 +50,8 @@ class MikuShape {
 
 class TypeCase {
   static type_1 (w, h, ctx) {
-    let count = Util.getRandomCount(6, 20)
+    let mc = w>475?20:12        
+    let count = Util.getRandomCount(6, mc)
     let elearr = []
     for (let i = 0;i < count;i++) {
       let r = Util.getRandomCount(10, Math.floor(h/30))
@@ -91,7 +92,8 @@ class TypeCase {
     return elearr
   }
   static type_3 (w, h, ctx) {
-    let count = Util.getRandomCount(6, 20)
+    let mc = w>475?20:12        
+    let count = Util.getRandomCount(6,mc)
     let elearr = []
     for (let i = 0;i < count;i++) {
       let r = Util.getRandomCount(10, Math.floor(h/30))
@@ -114,7 +116,8 @@ class TypeCase {
   }
 
   static type_4 (w, h, ctx) {
-    let count = Util.getRandomCount(6, 20)
+    let mc = w>475?20:12    
+    let count = Util.getRandomCount(6, mc)
     let elearr = []
     for (let i = 0;i < count;i++) {
       let r = Util.getRandomCount(10, Math.floor(h/30))
@@ -170,7 +173,8 @@ class TypeCase {
   static type_6 (w, h, ctx) {
     let ox = w / 2
     let oy = h / 2
-    let count = Util.getRandomCount(4, 9)
+    let mc = w>475?9:7
+    let count = Util.getRandomCount(4, mc)
     let type = Math.random() < 0.5
     let pr = Math.PI * 2 / (count - 1)
     let elearr = []

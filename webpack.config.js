@@ -10,15 +10,15 @@ module.exports = {
         path: __dirname + '/build',
         filename: 'bundle.js'
     },
-    // devServer: {
-    //     contentBase: './build',
-    //     stats: { colors: true },
-    //     historyApiFallback: true,
-    //     inline: true,
-    //     hot: true,
-    //     host:'0.0.0.0',
-    //     port: 8082
-    // },
+    devServer: {
+        contentBase: './build',
+        stats: { colors: true },
+        historyApiFallback: true,
+        inline: true,
+        hot: true,
+        host:'0.0.0.0',
+        port: 8082
+    },
     module: {
         rules: [{
                 test: /\.js$/,

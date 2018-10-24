@@ -1,4 +1,11 @@
-.board {
+.view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.view .board {
   position: fixed;
   top: 0;
   left: 0;
@@ -6,25 +13,54 @@
   height: 100%;
   z-index: 0;
 }
-.boxContainer {
+.view .boxContainer {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 1;
+  background: url(/img/test.jpg) no-repeat center;
 }
-.boxContainer .box_v {
+.view .boxContainer .box_v {
   width: 25%;
   height: 12.5%;
   float: left;
   background: rgba(255, 255, 255, 0.5);
   opacity: 0;
 }
-.boxContainer .box_h {
+.view .boxContainer .box_h {
   width: 12.5%;
   height: 25%;
   float: left;
   background: rgba(255, 255, 255, 0.5);
   opacity: 0;
+}
+.view .detailContainer {
+  position: fixed;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 200px;
+  color: #555;
+  z-index: 2;
+}
+.view .detailContainer h3 {
+  text-align: center;
+  font-size: 22px;
+  line-height: 40px;
+  margin: 5px auto;
+  color: #222;
+}
+.view .detailContainer p {
+  text-align: center;
+  font-size: 18px;
+  line-height: 30px;
+  margin: 5px auto;
+}
+.view .detailContainer p span {
+  cursor: pointer;
+  color: #000;
+  text-decoration: underline;
 }
