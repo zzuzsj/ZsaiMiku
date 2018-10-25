@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="board" width="40" height="40"></canvas>
+</body>
+<script>
+    const canvas = document.getElementById("board");
+    const ctx = canvas.getContext("2d");
+    const width = 40;
+    const height = 40;
+    const pw = 1;
+    const ph = 1;
+    ctx.fillStyle="black";
+    ctx.font = "bold 20px Arial";
+    ctx.fillText("微媒",0,20);
+    let imagedata = ctx.getImageData(0,0,width,height);
+    let posdata = [];
+    for(let m=0;m<width;m+=pw){
+        for(let n=0;n<height;n+=ph){
+            let _index = (n*height+m)*4;
+            let _a = imagedata.data[_index+3];
+            if(_a>127){
+                posdata.push({
+                    x:m,
+                    y:n
+                });
+            }
+        }
+    }
+    console.log(JSON.stringify(posdata));
+</script>
+</html>
